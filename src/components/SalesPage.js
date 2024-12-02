@@ -34,11 +34,11 @@ const SalesPage = () => {
 
     useEffect(() => {
         // Fetch all items and sales
-        axios.get('http://localhost:5000/api/items')
+        axios.get('https://habackend.onrender.com/api/items')
             .then((response) => setItems(response.data))
             .catch((error) => console.error(error));
 
-        axios.get('http://localhost:5000/api/items/sales')
+        axios.get('https://habackend.onrender.com/api/items/sales')
             .then((response) => {
                 setSales(response.data);
                 setFilteredSales(response.data);
@@ -57,7 +57,7 @@ const SalesPage = () => {
             return;
         }
 
-        axios.put(`http://localhost:5000/api/items/sales/${selectedItem}`, { quantity: parseInt(quantity) })
+        axios.put(`https://habackend.onrender.com/api/items/sales/${selectedItem}`, { quantity: parseInt(quantity) })
             .then(({ data }) => {
                 setMessage(`Sale successful! Sold ${data.sale.quantity} of ${data.sale.itemName}.`);
                 setSales([data.sale, ...sales]);
