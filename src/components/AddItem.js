@@ -10,7 +10,7 @@ const AddItem = () => {
         e.preventDefault();
         const newItem = { name, quantity, price };
         try {
-            await axios.post('http://localhost:5000/api/items', newItem);
+            await axios.post('https://habackend.onrender.com/api/items', newItem);
             alert('Item added!');
         } catch (error) {
             console.error(error);
